@@ -23,7 +23,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
   <div class="flex flex-col items-center justify-center min-h-screen">
-    <!-- Heading only on form -->
+    <!-- Form heading -->
     <div class="w-full max-w-xl mb-2 text-center">
       <div class="text-lg font-bold mt-2 mb-6">Victor Luxury Limousine LLC</div>
     </div>
@@ -114,7 +114,6 @@
       </div>
       <div class="flex items-center gap-3 pt-2">
         <button type="button" id="generate" class="pl-2 px-4 py-2 rounded-none bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
-        <button type="button" id="downloadPdf" class="pl-2 px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
         <button type="reset" class="pl-2 px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
       </div>
     </form>
@@ -195,7 +194,6 @@
   <!-- Flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    // Flatpickr config for dd/mm/yyyy calendar
     flatpickr("#date", {
       dateFormat: "d/m/Y",
       maxDate: "today",
@@ -203,7 +201,6 @@
       allowInput: true,
     });
 
-    // Settlement period restrictions (month input)
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -218,7 +215,6 @@
       return date.toLocaleString(undefined, { month: "long", year: "numeric" }).toUpperCase();
     }
 
-    // Emirates ID auto-format (18 chars: 15 digits, 3 hyphens)
     document.getElementById("emiratesId").addEventListener("input", function(e) {
       let val = e.target.value.replace(/[^0-9]/g, "");
       let formatted = '';

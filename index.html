@@ -124,33 +124,31 @@
       <div class="text-center mb-8">
         <div class="text-lg font-bold underline tracking-wide mb-2">Full and Final Settlement / No Dues Declaration</div>
       </div>
+      <!-- Updated preview header layout per request -->
       <div class="flex flex-col md:flex-row justify-between mb-8">
-        <div class="text-left font-semibold text-[15px] space-y-2 min-w-[230px]">
+        <!-- Left: Employee Name only -->
+        <div class="text-left font-semibold text-[15px] min-w-[200px] flex flex-row">
           <div class="flex">
             <div class="w-[130px]">Employee Name</div>
-            <div class="w-[18px] text-right">:</div>
+            <div class="w-[14px] text-right">:</div>
             <div class="pl-2"><span id="employeeNamePreview">—</span></div>
           </div>
-          <div class="flex">
-            <div class="w-[130px]">Emirates ID</div>
-            <div class="w-[18px] text-right">:</div>
-            <div class="pl-2"><span id="emiratesIdPreview">—</span></div>
-          </div>
         </div>
-        <div class="text-left font-semibold text-[15px] space-y-2 min-w-[230px] mt-4 md:mt-0">
-          <div class="flex">
-            <div class="w-[110px]">Date</div>
-            <div class="w-[18px] text-right">:</div>
-            <div class="pl-2"><span id="datePreview">—</span></div>
+        <!-- Right: Date (top), Labor Card No, Position stacked below -->
+        <div class="text-left font-semibold text-[15px] min-w-[220px] mt-4 md:mt-0 flex flex-col space-y-1">
+          <div class="flex items-center">
+            <div class="w-[45px]">Date</div>
+            <div class="w-[12px] text-right">:</div>
+            <div class="pl-1"><span id="datePreview">—</span></div>
           </div>
-          <div class="flex">
+          <div class="flex items-center">
             <div class="w-[110px]">Labor Card No</div>
-            <div class="w-[18px] text-right">:</div>
+            <div class="w-[14px] text-right">:</div>
             <div class="pl-2"><span id="laborCardPreview">—</span></div>
           </div>
-          <div class="flex">
-            <div class="w-[110px]">Position</div>
-            <div class="w-[18px] text-right">:</div>
+          <div class="flex items-center">
+            <div class="w-[80px]">Position</div>
+            <div class="w-[14px] text-right">:</div>
             <div class="pl-2"><span id="positionPreview">—</span></div>
           </div>
         </div>

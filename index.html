@@ -3,275 +3,234 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Victor Luxury Limousine LLC – Full & Final Settlement Form</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Full & Final Settlement Agreement</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- html2pdf.js (bundled with jsPDF + html2canvas) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <style>
+    html, body {
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
     @media print {
       .no-print { display: none; }
+      body { background: white !important; }
+    }
+    input:invalid {
+      border-color: #f87171 !important;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-700">
-  <!-- Page wrapper -->
-  <div class="max-w-5xl mx-auto p-6 lg:p-10">
-    <!-- Header -->
-    <header class="flex items-center justify-between mb-8">
-      <div class="flex items-center gap-3">
-        <!-- Client logo placeholder -->
-       <img src="victor-logo.png" alt="Victor Limousine Logo" class="w-14 h-14 rounded-xl object-contain">
-
-        <div>
-          
-          <p class="text-sm text-slate-400">Full & Final Settlement </p>
+<body class="bg-slate-50 text-slate-800">
+  <div class="flex flex-col items-center justify-center min-h-screen">
+    <!-- FORM -->
+    <form id="settlement-form" class="bg-white shadow p-6 mb-8 w-full max-w-xl rounded-xl space-y-4 ring-1 ring-slate-200">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-sm text-slate-600">Employee Name</span>
+          <input type="text" id="employeeName" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., Vishnu Vardhan Deshaveni" />
+        </label>
+        <label class="block">
+          <span class="text-sm text-slate-600">Emirates ID</span>
+          <input
+            type="text"
+            id="emiratesId"
+            maxlength="15"
+            pattern="[0-9]{3}-[0-9]{4}-[0-9]{7}-[0-9]{1}"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            required
+            placeholder="784-1998-3005118-3"
+            title="Format: xxx-xxxx-xxxxxxx-x (15 digits with hyphens)"
+          />
+        </label>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-sm text-slate-600">Date</span>
+          <input type="date" id="date"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            required />
+        </label>
+        <label class="block">
+          <span class="text-sm text-slate-600">Labor Card No</span>
+          <input type="text" id="laborCard" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., 127315096" />
+        </label>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-sm text-slate-600">Position</span>
+          <input type="text" id="position" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., Light Driver" />
+        </label>
+        <label class="block">
+          <span class="text-sm text-slate-600">Settlement Period</span>
+          <input type="text" id="period" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., JULY 2025" />
+        </label>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-sm text-slate-600">Offer Letter Salary (AED)</span>
+          <input type="number" id="offerSalary" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., 2000" />
+        </label>
+        <label class="block">
+          <span class="text-sm text-slate-600">MOHRE Contract Salary (AED)</span>
+          <input type="number" id="mohreSalary" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., 500" />
+        </label>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-sm text-slate-600">Authorized Signatory Name</span>
+          <input type="text" id="signName" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., A. Kumar" />
+        </label>
+        <label class="block">
+          <span class="text-sm text-slate-600">Authorized Signatory Designation</span>
+          <input type="text" id="signDesg" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., Manager" />
+        </label>
+      </div>
+      <div class="flex items-center gap-3 pt-2">
+        <button type="button" id="generate" class="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
+        <button type="button" id="downloadPdf" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
+        <button type="reset" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
+      </div>
+    </form>
+    <!-- PREVIEW -->
+    <div class="bg-white shadow p-10 w-full max-w-2xl rounded-xl ring-1 ring-slate-200 mb-4" id="letter">
+      <div class="text-center mb-8">
+        <div class="text-2xl font-extrabold underline tracking-wide mb-2">Full and Final Settlement / No Dues Declaration</div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between mb-8">
+        <!-- Left block -->
+        <div class="text-left font-semibold text-[15px] space-y-2 min-w-[230px]">
+          <div class="flex">
+            <div class="w-[130px]">Employee Name</div>
+            <div class="w-[18px] text-right">:</div>
+            <div class="pl-2"><span id="employeeNamePreview">—</span></div>
+          </div>
+          <div class="flex">
+            <div class="w-[130px]">Emirates ID</div>
+            <div class="w-[18px] text-right">:</div>
+            <div class="pl-2"><span id="emiratesIdPreview">—</span></div>
+          </div>
+        </div>
+        <!-- Right block -->
+        <div class="text-left font-semibold text-[15px] space-y-2 min-w-[230px] mt-4 md:mt-0">
+          <div class="flex">
+            <div class="w-[110px]">Date</div>
+            <div class="w-[18px] text-right">:</div>
+            <div class="pl-2"><span id="datePreview">—</span></div>
+          </div>
+          <div class="flex">
+            <div class="w-[110px]">Labor Card No</div>
+            <div class="w-[18px] text-right">:</div>
+            <div class="pl-2"><span id="laborCardPreview">—</span></div>
+          </div>
+          <div class="flex">
+            <div class="w-[110px]">Position</div>
+            <div class="w-[18px] text-right">:</div>
+            <div class="pl-2"><span id="positionPreview">—</span></div>
+          </div>
         </div>
       </div>
-      <div class="text-[10px] text-slate-300">Powered by If Else AI</div>
-    </header>
-
-    <!-- Card: Form -->
-    <div class="grid lg:grid-cols-2 gap-6">
-      <section class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 p-6">
-        <h2 class="text-lg font-medium mb-4">Enter Details</h2>
-        <form id="settlement-form" class="space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm text-slate-400">Date</span>
-              <input type="date" id="date" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required />
-            </label>
-             <label class="block">
-              <span class="text-sm text-slate-400">“Settlement Period” </span>
-              <input type="text" id="period" placeholder=" e.g., JULY 2025 " class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required />
-            </label>
-          
-          </div>
-
-          <label class="block">
-            <span class="text-sm text-slate-600">Employee Name</span>
-            <input type="text" id="employeeName" placeholder="e.g., Vishnu Vardhan Deshaveni" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required />
-          </label>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm text-slate-600">Labor Card No</span>
-              <input type="text" id="laborCard" placeholder="e.g., 127315096" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-            <label class="block">
-              <span class="text-sm text-slate-600">Emirates ID</span>
-              <input type="text" id="emiratesId" placeholder="e.g., 784-xxxx-xxxxxxx-x" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm text-slate-600">Position</span>
-              <input type="text" id="position" placeholder="e.g., Light Vehicle Driver" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-            
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm text-slate-600">Offer Letter Salary (AED)</span>
-              <input type="number" id="offerSalary" placeholder="e.g., 2000" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-            <label class="block">
-              <span class="text-sm text-slate-600">MOHRE Contract Salary (AED)</span>
-              <input type="number" id="mohreSalary" placeholder="e.g., 500" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm text-slate-600">Witness Name</span>
-              <input type="text" id="witness" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-            <label class="block">
-              <span class="text-sm text-slate-600">Authorized Signatory Name</span>
-              <input type="text" id="signName" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-            </label>
-          </div>
-
-          <label class="block">
-            <span class="text-sm text-slate-600">Authorized Signatory Designation</span>
-            <input type="text" id="signDesg" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" />
-          </label>
-
-          <div class="flex items-center gap-3 pt-2">
-            <button type="button" id="generate" class="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
-            <button type="button" id="downloadPdf" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
-            <button type="reset" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
-          </div>
-        </form>
-
-       
-      </section>
-
-      <!-- Card: Preview / Output -->
-      <section class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 p-6">
-        <h2 class="text-lg font-medium mb-4">Preview</h2>
-        <div id="letter-wrap" class="border border-slate-200 rounded-xl overflow-hidden">
-          <!-- A4-ish canvas -->
-          <div id="letter" class="bg-white p-8 md:p-10 leading-7 text-[15px]" style="width: 100%;">
-            <div class="text-center mb-6">
-        
-              <div class="text-sm text-slate-500">Full and Final Settlement / No Dues Declaration</div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1 mb-6 text-[12px]">
-              <div><span class="font-medium">Date</span> : <span data-out="date">—</span></div>
-              <div><span class="font-medium">Employee Name</span> : <span data-out="employeeName">—</span></div>
-              <div><span class="font-medium">Labor Card No</span> : <span data-out="laborCard">—</span></div>
-              <div><span class="font-medium">Emirates ID</span> : <span data-out="emiratesId">—</span></div>
-              <div><span class="font-medium">Position</span> : <span data-out="position">—</span></div>
-             
-            </div>
-
-            <div class="font-small mb-2">Subject: Confirmation of Full and Final Settlement up to <span data-out="period">[PERIOD]</span></div>
-
-            <p class="mb-4">Dear Mr. <span class="uppercase" data-out="employeeNameUpper">[EMPLOYEE NAME]</span>, this letter is issued to confirm that your employment with <span data-out="company2">Victor Luxury Limousine LLC</span> has been fully and finally settled up to the period ending <span data-out="period2">[PERIOD]</span>.</p>
-
-            <p class="mb-4">You were offered an internal offer letter with a salary of AED <span data-out="offerSalary">—</span>, while your registered MOHRE labor contract stated a salary of AED <span data-out="mohreSalary">—</span>. This is to confirm that the entire salary amount, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span data-out="period3">[PERIOD]</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.</p>
-
-            <p class="mb-2">You further confirm and acknowledge the following:</p>
-            <ol class="list-decimal pl-6 mb-4">
-              <li>You have received your full salary and all benefits (if any) up to and including <span data-out="period4">[PERIOD]</span>.</li>
-              <li>There are no pending financial dues from the employer.</li>
-              <li>You shall not file or pursue any claim, complaint, or legal action with MOHRE or any UAE authority regarding salary, dues, or employment matters related to your service until <span data-out="period5">[PERIOD]</span>.</li>
-              <li>This settlement is final, irrevocable, and made with full mutual understanding.</li>
-              <li>You have signed this declaration voluntarily and of your own free will.</li>
-            </ol>
-
-            <div class="mt-6">
-              <div class="font-medium mb-2">Employee Declaration:</div>
-              <p class="mb-6">I, <span class="uppercase" data-out="employeeNameUpper2">[EMPLOYEE NAME]</span>, hereby confirm that I have received my full and final settlement from <span data-out="company3">Victor Luxury Limousine LLC</span> up to <span data-out="period6">[PERIOD]</span>, and I have no further claims or pending dues. I shall not raise any complaints or legal cases regarding my employment.</p>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
-                <div>
-                  <div class="h-12">&nbsp;</div>
-                  <div class="border-t border-slate-300 pt-1 text-sm">Employee Signature</div>
-                  <div class="text-sm text-slate-500">Date: <span data-out="date2">—</span></div>
-                </div>
-                <div>
-                  <div class="mb-2"><span class="font-medium">Witness Name & Signature</span>: <span data-out="witness">—</span></div>
-                  <div class="h-12">&nbsp;</div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10">
-                <div>
-                  <div class="font-medium">Authorized Signatory (Company)</div>
-                  <div class="mt-6 h-12">&nbsp;</div>
-                  <div class="border-t border-slate-300 pt-1 text-sm">Signature & Company Stamp</div>
-                </div>
-                <div>
-                  <div class="font-medium">Details</div>
-                  <div class="mt-2 text-sm">Name: <span data-out="signName">—</span></div>
-                  <div class="text-sm">Designation: <span data-out="signDesg">—</span></div>
-                </div>
-              </div>
-            </div>
-
-            <footer class="mt-10 pt-4 border-t border-dashed border-slate-200 text-center text-[11px] text-slate-400">
-               — <span class="text-slate-400">Powered by If Else AI</span>
-            </footer>
-          </div>
+      <div class="font-bold mb-3 text-[15px]">
+        Subject: Confirmation of Full and Final Settlement up to <span id="periodPreview">—</span>
+      </div>
+      <!-- Body text -->
+      <div class="mb-3">Dear Mr. <span id="employeeNameUpperPreview" class="font-bold">—</span>, this letter is issued to confirm that your employment has been fully and finally settled up to the period ending <span id="periodPreview2">—</span>.</div>
+      <div class="mb-3">You were offered an internal offer letter with a salary of AED <span id="offerSalaryPreview">—</span>, while your registered MOHRE labor contract stated a salary of AED <span id="mohreSalaryPreview">—</span>. This is to confirm that the salary, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span id="periodPreview3">—</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.</div>
+      <div class="mb-2">You further confirm and acknowledge the following:</div>
+      <ol class="list-decimal pl-6 mb-3 text-[15px]" style="margin-top: 0;">
+        <li>You have received your full salary and all benefits (if any) up to and including <span id="periodPreview4">—</span>.</li>
+        <li>There are no pending financial dues from the employer.</li>
+        <li>You shall not file or pursue any claim, complaint, or legal action with MOHRE or any UAE authority regarding salary, dues, or employment matters related to your service until <span id="periodPreview5">—</span>.</li>
+        <li>This settlement is final, irrevocable, and made with full mutual understanding.</li>
+        <li>You have signed this declaration voluntarily and of your own free will.</li>
+      </ol>
+      <div class="font-medium mb-2">Employee Declaration:</div>
+      <div class="mb-3">I, <span class="font-bold uppercase" id="employeeNameUpperPreview2">—</span>, hereby confirm that I have received my full and final settlement up to <span id="periodPreview6">—</span>, and I have no further claims or pending dues. I shall not raise any complaints or legal cases regarding my employment.</div>
+      <!-- Signature Block -->
+      <div class="flex flex-row justify-between mt-8 mb-2">
+        <div class="flex flex-col justify-end min-w-[230px]">
+          <div class="font-medium mb-2">Authorised Signature</div>
+          <div class="mt-6 mb-0 text-[15px]">Name: <span id="signNamePreview">—</span></div>
+          <div class="mb-3 text-[15px]">Designation: <span id="signDesgPreview">—</span></div>
+          <div class="border-t border-slate-300 pt-1 text-sm mt-5">Signature</div>
         </div>
-
-        <div class="no-print mt-4 text-xs text-slate-500">Note: The preview mirrors the final PDF. Ensure all fields are correct before exporting.</div>
-      </section>
+        <div class="flex flex-col items-end justify-end min-w-[230px]">
+          <div class="h-6">&nbsp;</div>
+          <div class="border-t border-slate-300 pt-1 text-sm text-right mt-8">Employee Signature</div>
+          <div class="text-sm text-slate-500 text-right">Date: <span id="date2Preview">—</span></div>
+        </div>
+      </div>
     </div>
-
+    <button type="button" id="downloadPdf" class="no-print mt-6 px-4 py-2 rounded font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
   </div>
-
+  <!-- JavaScript -->
   <script>
-    const $ = (sel, ctx=document) => ctx.querySelector(sel);
-    const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+    // SET TODAY as default and max for date picker
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+    document.getElementById('date').value = todayStr;
+    document.getElementById('date').setAttribute('max', todayStr);
 
-    const fields = {
-      date: $('#date'),
-      period: $('#period'),
-      employeeName: $('#employeeName'),
-      laborCard: $('#laborCard'),
-      emiratesId: $('#emiratesId'),
-      position: $('#position'),
-      offerSalary: $('#offerSalary'),
-      mohreSalary: $('#mohreSalary'),
-      witness: $('#witness'),
-      signName: $('#signName'),
-      signDesg: $('#signDesg')
+    function formatDateDMY(d) {
+      if (!d) return '';
+      const dateObj = new Date(d);
+      const day = String(dateObj.getDate()).padStart(2, '0');
+      const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const year = dateObj.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+
+    // Emirates ID autoformat
+    document.getElementById("emiratesId").addEventListener("input", function(e) {
+      let val = e.target.value.replace(/[^0-9]/g, "");
+      let formatted = '';
+      if(val.length > 0) formatted += val.slice(0, 3);
+      if(val.length > 3) formatted += '-' + val.slice(3, 7);
+      if(val.length > 7) formatted += '-' + val.slice(7, 14);
+      if(val.length > 14) formatted += '-' + val.slice(14, 15);
+      e.target.value = formatted.slice(0, 15);
+    });
+
+    document.getElementById('generate').onclick = function() {
+      document.getElementById('employeeNamePreview').innerText = document.getElementById('employeeName').value;
+      document.getElementById('employeeNameUpperPreview').innerText = document.getElementById('employeeName').value.toUpperCase();
+      document.getElementById('employeeNameUpperPreview2').innerText = document.getElementById('employeeName').value.toUpperCase();
+      document.getElementById('emiratesIdPreview').innerText = document.getElementById('emiratesId').value;
+      let d = document.getElementById('date').value;
+      let dateShow = formatDateDMY(d);
+      document.getElementById('datePreview').innerText = dateShow;
+      document.getElementById('date2Preview').innerText = dateShow;
+      document.getElementById('laborCardPreview').innerText = document.getElementById('laborCard').value;
+      document.getElementById('positionPreview').innerText = document.getElementById('position').value;
+      document.getElementById('periodPreview').innerText = document.getElementById('period').value;
+      document.getElementById('periodPreview2').innerText = document.getElementById('period').value;
+      document.getElementById('periodPreview3').innerText = document.getElementById('period').value;
+      document.getElementById('periodPreview4').innerText = document.getElementById('period').value;
+      document.getElementById('periodPreview5').innerText = document.getElementById('period').value;
+      document.getElementById('periodPreview6').innerText = document.getElementById('period').value;
+      document.getElementById('offerSalaryPreview').innerText = document.getElementById('offerSalary').value;
+      document.getElementById('mohreSalaryPreview').innerText = document.getElementById('mohreSalary').value;
+      document.getElementById('signNamePreview').innerText = document.getElementById('signName').value;
+      document.getElementById('signDesgPreview').innerText = document.getElementById('signDesg').value;
+      document.getElementById('downloadPdf').disabled = false;
     };
 
-    function fmtDate(iso) {
-      if (!iso) return '—';
-      try {
-        const d = new Date(iso);
-        const opts = { year: 'numeric', month: 'short', day: '2-digit' };
-        return d.toLocaleDateString(undefined, opts);
-      } catch { return iso; }
-    }
-
-    function upper(txt) { return (txt || '').toString().toUpperCase(); }
-
-    function populate() {
-      const outputs = {
-        date: fmtDate(fields.date.value),
-        date2: fmtDate(fields.date.value),
-        period: fields.period.value || '[PERIOD]',
-        employeeName: fields.employeeName.value || '—',
-        employeeNameUpper: upper(fields.employeeName.value || '[EMPLOYEE NAME]'),
-        employeeNameUpper2: upper(fields.employeeName.value || '[EMPLOYEE NAME]'),
-        laborCard: fields.laborCard.value || '—',
-        emiratesId: fields.emiratesId.value || '—',
-        position: fields.position.value || '—',
-        offerSalary: fields.offerSalary.value || '—',
-        mohreSalary: fields.mohreSalary.value || '—',
-        witness: fields.witness.value || '—',
-        signName: fields.signName.value || '—',
-        signDesg: fields.signDesg.value || '—'
-      };
-
-      $$("[data-out]").forEach(span => {
-        const key = span.getAttribute('data-out');
-        if (outputs[key] !== undefined) span.textContent = outputs[key];
-      });
-      // Period mirrors
-      $$('[data-out="period2"], [data-out="period3"], [data-out="period4"], [data-out="period5"], [data-out="period6"]').forEach(s => s.textContent = outputs.period);
-      // Employee uppercase mirrors
-      $$('[data-out="employeeNameUpper"], [data-out="employeeNameUpper2"]').forEach(s => s.textContent = outputs.employeeNameUpper);
-      // Company mirrors
-      $$('[data-out="company2"], [data-out="company3"]').forEach(s => s.textContent = outputs.company);
-
-      // Enable PDF button after first generate
-      $('#downloadPdf').disabled = false;
-    }
-
-    function downloadPDF() {
-      const fileNameSafe = (fields.employeeName.value || 'Settlement_Letter_Victor').replace(/\s+/g, '_');
+    document.getElementById('downloadPdf').onclick = function() {
       const element = document.getElementById('letter');
       const opt = {
-        margin:       [10, 12, 10, 12],
-        filename:     `${fileNameSafe}_FNF_${(fields.period.value || '').replace(/\s+/g,'_')}.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        margin: [12,15,12,15],
+        filename: 'Full_and_Final_Settlement.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
       html2pdf().set(opt).from(element).save();
-    }
-
-    $('#generate').addEventListener('click', populate);
-    $('#downloadPdf').addEventListener('click', downloadPDF);
-    $('#year').textContent = new Date().getFullYear();
-
-    // Prefill company to ensure consistency
-    fields.company.addEventListener('input', () => {
-      // live sync company fields if needed later
-    });
+    };
   </script>
 </body>
 </html>
+
 
 
 

@@ -41,10 +41,33 @@
               <span class="text-sm text-slate-600">Date</span>
               <input type="date" id="date" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required />
             </label>
-            <label class="block">
-              <span class="text-sm text-slate-600">Settlement Period (e.g., JULY 2025)</span>
-              <input type="text" id="period" placeholder="JULY 2025" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required />
-            </label>
+           <form id="settlement-form">
+  <!-- Other form fields -->
+
+  <label for="settlement-month">Month:</label>
+  <select id="settlement-month" name="settlement-month">
+    <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+  <option value="April">April</option>
+  <option value="May">May</option>
+  <option value="June">June</option>
+  <option value="July">July</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="October">October</option>
+  <option value="November">November</option>
+  <option value="December">December</option>
+  </select>
+
+  <label for="settlement-year">Year:</label>
+  <select id="settlement-year" name="settlement-year">
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+    <option value="2026">2026</option>
+  </select>
+</form>
           </div>
 
           <label class="block">
@@ -280,6 +303,7 @@
   </script>
 </body>
 </html>
+
 
 
 

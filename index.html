@@ -122,10 +122,10 @@
               <div class="text-sm text-slate-500">Full and Final Settlement / No Dues Declaration</div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1 mb-6 text-[14px]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1 mb-6 text-[12px]">
               <div><span class="font-medium">Date</span> : <span data-out="date">—</span></div>
               <div><span class="font-medium">Employee Name</span> : <span data-out="employeeName">—</span></div>
-              <div><span class="font-medium">Labor Card No</span> : <span data-out="laborCard">—</span></div>
+              <div><span class="font-medium">Labour Card No</span> : <span data-out="labourCard">—</span></div>
               <div><span class="font-medium">Emirates ID</span> : <span data-out="emiratesId">—</span></div>
               <div><span class="font-medium">Position</span> : <span data-out="position">—</span></div>
               <div><span class="font-medium">Company</span> : <span data-out="company">Victor Luxury Limousine LLC</span></div>
@@ -133,7 +133,7 @@
 
             <div class="font-medium mb-2">Subject: Confirmation of Full and Final Settlement up to <span data-out="period">[PERIOD]</span></div>
 
-            <p class="mb-4">Dear Mr./Ms. <span class="uppercase" data-out="employeeNameUpper">[EMPLOYEE NAME]</span>, this letter is issued to confirm that your employment with <span data-out="company2">Victor Luxury Limousine LLC</span> has been fully and finally settled up to the period ending <span data-out="period2">[PERIOD]</span>.</p>
+            <p class="mb-4">Dear Mr. <span class="uppercase" data-out="employeeNameUpper">[EMPLOYEE NAME]</span>, this letter is issued to confirm that your employment with <span data-out="company2">Victor Luxury Limousine LLC</span> has been fully and finally settled up to the period ending <span data-out="period2">[PERIOD]</span>.</p>
 
             <p class="mb-4">You were offered an internal offer letter with a salary of AED <span data-out="offerSalary">—</span>, while your registered MOHRE labor contract stated a salary of AED <span data-out="mohreSalary">—</span>. This is to confirm that the entire salary amount, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span data-out="period3">[PERIOD]</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.</p>
 
@@ -177,7 +177,7 @@
             </div>
 
             <footer class="mt-10 pt-4 border-t border-dashed border-slate-200 text-center text-[11px] text-slate-400">
-              This document preview will be exported as PDF. — <span class="text-slate-400">Powered by If Else AI</span>
+               — <span class="text-slate-400">Powered by If Else AI</span>
             </footer>
           </div>
         </div>
@@ -257,7 +257,7 @@
     }
 
     function downloadPDF() {
-      const fileNameSafe = (fields.employeeName.value || 'Settlement_Letter').replace(/\s+/g, '_');
+      const fileNameSafe = (fields.employeeName.value || 'Settlement_Letter_Victor').replace(/\s+/g, '_');
       const element = document.getElementById('letter');
       const opt = {
         margin:       [10, 12, 10, 12],
@@ -280,6 +280,7 @@
   </script>
 </body>
 </html>
+
 
 
 

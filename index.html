@@ -21,24 +21,32 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
   <div class="flex flex-col items-center justify-center min-h-screen">
+    <!-- Enter Details Heading -->
+    <div class="w-full max-w-xl mb-2 text-center">
+      <div class="text-lg font-bold mt-2 mb-6">Victor Luxury Limousine LLC</div>
+    </div>
     <!-- FORM -->
     <form id="settlement-form" class="bg-white shadow p-6 mb-8 w-full max-w-xl rounded-xl space-y-4 ring-1 ring-slate-200">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="block">
           <span class="text-sm text-slate-600">Employee Name</span>
-          <input type="text" id="employeeName" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., Vishnu Vardhan Deshaveni" />
+          <input type="text" id="employeeName"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            required
+            placeholder="e.g., Vishnu Vardhan Deshaveni" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Emirates ID</span>
           <input
             type="text"
             id="emiratesId"
-            maxlength="15"
-            pattern="[0-9]{3}-[0-9]{4}-[0-9]{7}-[0-9]{1}"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            minlength="18"
+            maxlength="18"
             required
+            pattern="\d{3}-\d{4}-\d{7}-\d"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="784-1998-3005118-3"
-            title="Format: xxx-xxxx-xxxxxxx-x (15 digits with hyphens)"
+            title="Format: xxx-xxxx-xxxxxxx-x (15 digits and 3 hyphens, total 18 characters)"
           />
         </label>
       </div>
@@ -51,37 +59,53 @@
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Labor Card No</span>
-          <input type="text" id="laborCard" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., 127315096" />
+          <input type="text" id="laborCard"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            required
+            placeholder="e.g., 127315096" />
         </label>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="block">
           <span class="text-sm text-slate-600">Position</span>
-          <input type="text" id="position" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., Light Driver" />
+          <input type="text" id="position"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            required
+            placeholder="e.g., Light Driver" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Settlement Period</span>
-          <input type="text" id="period" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" required placeholder="e.g., JULY 2025" />
+          <input type="month" id="period"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            required />
         </label>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="block">
           <span class="text-sm text-slate-600">Offer Letter Salary (AED)</span>
-          <input type="number" id="offerSalary" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., 2000" />
+          <input type="number" id="offerSalary"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            placeholder="e.g., 2000" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">MOHRE Contract Salary (AED)</span>
-          <input type="number" id="mohreSalary" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., 500" />
+          <input type="number" id="mohreSalary"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            placeholder="e.g., 500" />
         </label>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="block">
           <span class="text-sm text-slate-600">Authorized Signatory Name</span>
-          <input type="text" id="signName" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., A. Kumar" />
+          <input type="text" id="signName"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            placeholder="e.g., A. Kumar" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Authorized Signatory Designation</span>
-          <input type="text" id="signDesg" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="e.g., Manager" />
+          <input type="text" id="signDesg"
+            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            placeholder="e.g., Manager" />
         </label>
       </div>
       <div class="flex items-center gap-3 pt-2">
@@ -92,11 +116,11 @@
     </form>
     <!-- PREVIEW -->
     <div class="bg-white shadow p-10 w-full max-w-2xl rounded-xl ring-1 ring-slate-200 mb-4" id="letter">
+      <div class="mt-10"></div>
       <div class="text-center mb-8">
-        <div class="text-2xl font-extrabold underline tracking-wide mb-2">Full and Final Settlement / No Dues Declaration</div>
+        <div class="text-lg font-bold underline tracking-wide mb-2">Full and Final Settlement / No Dues Declaration</div>
       </div>
       <div class="flex flex-col md:flex-row justify-between mb-8">
-        <!-- Left block -->
         <div class="text-left font-semibold text-[15px] space-y-2 min-w-[230px]">
           <div class="flex">
             <div class="w-[130px]">Employee Name</div>
@@ -109,7 +133,6 @@
             <div class="pl-2"><span id="emiratesIdPreview">—</span></div>
           </div>
         </div>
-        <!-- Right block -->
         <div class="text-left font-semibold text-[15px] space-y-2 min-w-[230px] mt-4 md:mt-0">
           <div class="flex">
             <div class="w-[110px]">Date</div>
@@ -131,7 +154,6 @@
       <div class="font-bold mb-3 text-[15px]">
         Subject: Confirmation of Full and Final Settlement up to <span id="periodPreview">—</span>
       </div>
-      <!-- Body text -->
       <div class="mb-3">Dear Mr. <span id="employeeNameUpperPreview" class="font-bold">—</span>, this letter is issued to confirm that your employment has been fully and finally settled up to the period ending <span id="periodPreview2">—</span>.</div>
       <div class="mb-3">You were offered an internal offer letter with a salary of AED <span id="offerSalaryPreview">—</span>, while your registered MOHRE labor contract stated a salary of AED <span id="mohreSalaryPreview">—</span>. This is to confirm that the salary, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span id="periodPreview3">—</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.</div>
       <div class="mb-2">You further confirm and acknowledge the following:</div>
@@ -144,7 +166,6 @@
       </ol>
       <div class="font-medium mb-2">Employee Declaration:</div>
       <div class="mb-3">I, <span class="font-bold uppercase" id="employeeNameUpperPreview2">—</span>, hereby confirm that I have received my full and final settlement up to <span id="periodPreview6">—</span>, and I have no further claims or pending dues. I shall not raise any complaints or legal cases regarding my employment.</div>
-      <!-- Signature Block -->
       <div class="flex flex-row justify-between mt-8 mb-2">
         <div class="flex flex-col justify-end min-w-[230px]">
           <div class="font-medium mb-2">Authorised Signature</div>
@@ -161,9 +182,8 @@
     </div>
     <button type="button" id="downloadPdf" class="no-print mt-6 px-4 py-2 rounded font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
   </div>
-  <!-- JavaScript -->
   <script>
-    // SET TODAY as default and max for date picker
+    // Date: today & max
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -171,6 +191,11 @@
     const todayStr = `${yyyy}-${mm}-${dd}`;
     document.getElementById('date').value = todayStr;
     document.getElementById('date').setAttribute('max', todayStr);
+
+    // Set max for Settlement Period (month input)
+    const maxMonth = `${yyyy}-${mm}`;
+    document.getElementById('period').setAttribute('max', maxMonth);
+    document.getElementById('period').value = maxMonth;
 
     function formatDateDMY(d) {
       if (!d) return '';
@@ -181,7 +206,14 @@
       return `${day}/${month}/${year}`;
     }
 
-    // Emirates ID autoformat
+    function formatMonthYear(value) {
+      if (!value) return '';
+      const [year, month] = value.split("-");
+      const date = new Date(year, month - 1);
+      return date.toLocaleString(undefined, { month: "long", year: "numeric" }).toUpperCase();
+    }
+
+    // Emirates ID auto-format (18 characters, 15 digits and 3 hyphens)
     document.getElementById("emiratesId").addEventListener("input", function(e) {
       let val = e.target.value.replace(/[^0-9]/g, "");
       let formatted = '';
@@ -189,7 +221,7 @@
       if(val.length > 3) formatted += '-' + val.slice(3, 7);
       if(val.length > 7) formatted += '-' + val.slice(7, 14);
       if(val.length > 14) formatted += '-' + val.slice(14, 15);
-      e.target.value = formatted.slice(0, 15);
+      e.target.value = formatted.slice(0, 18);
     });
 
     document.getElementById('generate').onclick = function() {
@@ -203,12 +235,14 @@
       document.getElementById('date2Preview').innerText = dateShow;
       document.getElementById('laborCardPreview').innerText = document.getElementById('laborCard').value;
       document.getElementById('positionPreview').innerText = document.getElementById('position').value;
-      document.getElementById('periodPreview').innerText = document.getElementById('period').value;
-      document.getElementById('periodPreview2').innerText = document.getElementById('period').value;
-      document.getElementById('periodPreview3').innerText = document.getElementById('period').value;
-      document.getElementById('periodPreview4').innerText = document.getElementById('period').value;
-      document.getElementById('periodPreview5').innerText = document.getElementById('period').value;
-      document.getElementById('periodPreview6').innerText = document.getElementById('period').value;
+      const periodVal = document.getElementById('period').value;
+      const periodFormatted = formatMonthYear(periodVal);
+      document.getElementById('periodPreview').innerText = periodFormatted;
+      document.getElementById('periodPreview2').innerText = periodFormatted;
+      document.getElementById('periodPreview3').innerText = periodFormatted;
+      document.getElementById('periodPreview4').innerText = periodFormatted;
+      document.getElementById('periodPreview5').innerText = periodFormatted;
+      document.getElementById('periodPreview6').innerText = periodFormatted;
       document.getElementById('offerSalaryPreview').innerText = document.getElementById('offerSalary').value;
       document.getElementById('mohreSalaryPreview').innerText = document.getElementById('mohreSalary').value;
       document.getElementById('signNamePreview').innerText = document.getElementById('signName').value;
@@ -230,27 +264,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -33,7 +33,7 @@
         <label class="block">
           <span class="text-sm text-slate-600">Employee Name</span>
           <input type="text" id="employeeName"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="e.g., Vishnu Vardhan Deshaveni" />
         </label>
@@ -46,7 +46,7 @@
             maxlength="18"
             required
             pattern="\d{3}-\d{4}-\d{7}-\d"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="784-1998-3005118-3"
             title="Format: xxx-xxxx-xxxxxxx-x (15 digits and 3 hyphens, total 18 characters)"
           />
@@ -56,7 +56,7 @@
         <label class="block">
           <span class="text-sm text-slate-600">Date</span>
           <input type="text" id="date"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="dd/mm/yyyy"
             autocomplete="off" />
@@ -64,7 +64,7 @@
         <label class="block">
           <span class="text-sm text-slate-600">Labor Card No</span>
           <input type="text" id="laborCard"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="e.g., 127315096" />
         </label>
@@ -73,14 +73,14 @@
         <label class="block">
           <span class="text-sm text-slate-600">Position</span>
           <input type="text" id="position"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="e.g., Light Driver" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Settlement Period</span>
           <input type="month" id="period"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required />
         </label>
       </div>
@@ -88,13 +88,13 @@
         <label class="block">
           <span class="text-sm text-slate-600">Offer Letter Salary (AED)</span>
           <input type="number" id="offerSalary"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., 2000" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">MOHRE Contract Salary (AED)</span>
           <input type="number" id="mohreSalary"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., 500" />
         </label>
       </div>
@@ -102,20 +102,20 @@
         <label class="block">
           <span class="text-sm text-slate-600">Authorized Signatory Name</span>
           <input type="text" id="signName"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., A. Kumar" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Authorized Signatory Designation</span>
           <input type="text" id="signDesg"
-            class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., Manager" />
         </label>
       </div>
       <div class="flex items-center gap-3 pt-2">
-        <button type="button" id="generate" class="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
-        <button type="button" id="downloadPdf" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
-        <button type="reset" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
+        <button type="button" id="generate" class="px-4 py-2 rounded-none bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
+        <button type="button" id="downloadPdf" class="px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
+        <button type="reset" class="px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
       </div>
     </form>
     <!-- PREVIEW -->
@@ -191,7 +191,7 @@
         </div>
       </div>
     </div>
-    <button type="button" id="downloadPdf" class="no-print mt-6 px-4 py-2 rounded font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
+    <button type="button" id="downloadPdf" class="no-print mt-6 px-4 py-2 rounded-none font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
   </div>
   <!-- Flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

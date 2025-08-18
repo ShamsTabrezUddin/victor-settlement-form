@@ -6,6 +6,8 @@
   <title>Full & Final Settlement Agreement</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <style>
     html, body {
       font-family: Arial, Helvetica, sans-serif !important;
@@ -21,7 +23,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
   <div class="flex flex-col items-center justify-center min-h-screen">
-    <!-- Enter Details Heading -->
+    <!-- Heading only on form -->
     <div class="w-full max-w-xl mb-2 text-center">
       <div class="text-lg font-bold mt-2 mb-6">Victor Luxury Limousine LLC</div>
     </div>
@@ -53,9 +55,11 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="block">
           <span class="text-sm text-slate-600">Date</span>
-          <input type="date" id="date"
+          <input type="text" id="date"
             class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
-            required />
+            required
+            placeholder="dd/mm/yyyy"
+            autocomplete="off" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Labor Card No</span>
@@ -154,7 +158,11 @@
       <div class="font-bold mb-3 text-[15px]">
         Subject: Confirmation of Full and Final Settlement up to <span id="periodPreview">—</span>
       </div>
-      <div class="mb-3">Dear Mr. <span id="employeeNameUpperPreview" class="font-bold">—</span>, this letter is issued to confirm that your employment has been fully and finally settled up to the period ending <span id="periodPreview2">—</span>.</div>
+      <!-- Employee Name is BOLD in both key locations below -->
+      <div class="mb-3">
+        Dear Mr. <span id="employeeNameUpperPreview" class="font-bold">—</span>, 
+        this letter is issued to confirm that your employment has been fully and finally settled up to the period ending <span id="periodPreview2">—</span>.
+      </div>
       <div class="mb-3">You were offered an internal offer letter with a salary of AED <span id="offerSalaryPreview">—</span>, while your registered MOHRE labor contract stated a salary of AED <span id="mohreSalaryPreview">—</span>. This is to confirm that the salary, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span id="periodPreview3">—</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.</div>
       <div class="mb-2">You further confirm and acknowledge the following:</div>
       <ol class="list-decimal pl-6 mb-3 text-[15px]" style="margin-top: 0;">
@@ -165,7 +173,10 @@
         <li>You have signed this declaration voluntarily and of your own free will.</li>
       </ol>
       <div class="font-medium mb-2">Employee Declaration:</div>
-      <div class="mb-3">I, <span class="font-bold uppercase" id="employeeNameUpperPreview2">—</span>, hereby confirm that I have received my full and final settlement up to <span id="periodPreview6">—</span>, and I have no further claims or pending dues. I shall not raise any complaints or legal cases regarding my employment.</div>
+      <div class="mb-3">
+        I, <span class="font-bold uppercase" id="employeeNameUpperPreview2">—</span>, hereby confirm that I have received my full and final settlement up to 
+        <span id="periodPreview6">—</span>, and I have no further claims or pending dues. I shall not raise any complaints or legal cases regarding my employment.
+      </div>
       <div class="flex flex-row justify-between mt-8 mb-2">
         <div class="flex flex-col justify-end min-w-[230px]">
           <div class="font-medium mb-2">Authorised Signature</div>
@@ -182,29 +193,24 @@
     </div>
     <button type="button" id="downloadPdf" class="no-print mt-6 px-4 py-2 rounded font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
   </div>
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    // Date: today & max
+    // Flatpickr config for dd/mm/yyyy calendar
+    flatpickr("#date", {
+      dateFormat: "d/m/Y",
+      maxDate: "today",
+      defaultDate: "today",
+      allowInput: true,
+    });
+
+    // Settlement period restrictions (month input)
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    const todayStr = `${yyyy}-${mm}-${dd}`;
-    document.getElementById('date').value = todayStr;
-    document.getElementById('date').setAttribute('max', todayStr);
-
-    // Set max for Settlement Period (month input)
     const maxMonth = `${yyyy}-${mm}`;
     document.getElementById('period').setAttribute('max', maxMonth);
     document.getElementById('period').value = maxMonth;
-
-    function formatDateDMY(d) {
-      if (!d) return '';
-      const dateObj = new Date(d);
-      const day = String(dateObj.getDate()).padStart(2, '0');
-      const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-      const year = dateObj.getFullYear();
-      return `${day}/${month}/${year}`;
-    }
 
     function formatMonthYear(value) {
       if (!value) return '';
@@ -229,10 +235,9 @@
       document.getElementById('employeeNameUpperPreview').innerText = document.getElementById('employeeName').value.toUpperCase();
       document.getElementById('employeeNameUpperPreview2').innerText = document.getElementById('employeeName').value.toUpperCase();
       document.getElementById('emiratesIdPreview').innerText = document.getElementById('emiratesId').value;
-      let d = document.getElementById('date').value;
-      let dateShow = formatDateDMY(d);
-      document.getElementById('datePreview').innerText = dateShow;
-      document.getElementById('date2Preview').innerText = dateShow;
+      const dateVal = document.getElementById('date').value || "";
+      document.getElementById('datePreview').innerText = dateVal;
+      document.getElementById('date2Preview').innerText = dateVal;
       document.getElementById('laborCardPreview').innerText = document.getElementById('laborCard').value;
       document.getElementById('positionPreview').innerText = document.getElementById('position').value;
       const periodVal = document.getElementById('period').value;

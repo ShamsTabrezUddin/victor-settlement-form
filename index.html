@@ -33,7 +33,7 @@
         <label class="block">
           <span class="text-sm text-slate-600">Employee Name</span>
           <input type="text" id="employeeName"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="e.g., Vishnu Vardhan Deshaveni" />
         </label>
@@ -46,7 +46,7 @@
             maxlength="18"
             required
             pattern="\d{3}-\d{4}-\d{7}-\d"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="784-1998-3005118-3"
             title="Format: xxx-xxxx-xxxxxxx-x (15 digits and 3 hyphens, total 18 characters)"
           />
@@ -56,7 +56,7 @@
         <label class="block">
           <span class="text-sm text-slate-600">Date</span>
           <input type="text" id="date"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="dd/mm/yyyy"
             autocomplete="off" />
@@ -64,7 +64,7 @@
         <label class="block">
           <span class="text-sm text-slate-600">Labor Card No</span>
           <input type="text" id="laborCard"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="e.g., 127315096" />
         </label>
@@ -73,14 +73,14 @@
         <label class="block">
           <span class="text-sm text-slate-600">Position</span>
           <input type="text" id="position"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required
             placeholder="e.g., Light Driver" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Settlement Period</span>
           <input type="month" id="period"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             required />
         </label>
       </div>
@@ -88,13 +88,13 @@
         <label class="block">
           <span class="text-sm text-slate-600">Offer Letter Salary (AED)</span>
           <input type="number" id="offerSalary"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., 2000" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">MOHRE Contract Salary (AED)</span>
           <input type="number" id="mohreSalary"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., 500" />
         </label>
       </div>
@@ -102,25 +102,25 @@
         <label class="block">
           <span class="text-sm text-slate-600">Authorized Signatory Name</span>
           <input type="text" id="signName"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., A. Kumar" />
         </label>
         <label class="block">
           <span class="text-sm text-slate-600">Authorized Signatory Designation</span>
           <input type="text" id="signDesg"
-            class="mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+            class="pl-2 mt-1 w-full rounded-none border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             placeholder="e.g., Manager" />
         </label>
       </div>
       <div class="flex items-center gap-3 pt-2">
-        <button type="button" id="generate" class="px-4 py-2 rounded-none bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
-        <button type="button" id="downloadPdf" class="px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
-        <button type="reset" class="px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
+        <button type="button" id="generate" class="pl-2 px-4 py-2 rounded-none bg-slate-900 text-white hover:bg-slate-800">Generate Letter</button>
+        <button type="button" id="downloadPdf" class="pl-2 px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50" disabled>Download PDF</button>
+        <button type="reset" class="pl-2 px-4 py-2 rounded-none bg-white ring-1 ring-slate-300 hover:bg-slate-50">Reset</button>
       </div>
     </form>
     <!-- PREVIEW -->
     <div class="bg-white shadow p-10 w-full max-w-2xl rounded-xl ring-1 ring-slate-200 mb-4" id="letter">
-      <div class="mt-10"></div>
+      <div class="mt-16"></div>
       <div class="text-center mb-8">
         <div class="text-lg font-bold underline tracking-wide mb-2">Full and Final Settlement / No Dues Declaration</div>
       </div>
@@ -158,14 +158,13 @@
       <div class="font-bold mb-3 text-[15px]">
         Subject: Confirmation of Full and Final Settlement up to <span id="periodPreview">—</span>
       </div>
-      <!-- Employee Name is BOLD in both key locations below -->
       <div class="mb-3">
         Dear Mr. <span id="employeeNameUpperPreview" class="font-bold">—</span>, 
         this letter is issued to confirm that your employment has been fully and finally settled up to the period ending <span id="periodPreview2">—</span>.
       </div>
       <div class="mb-3">You were offered an internal offer letter with a salary of AED <span id="offerSalaryPreview">—</span>, while your registered MOHRE labor contract stated a salary of AED <span id="mohreSalaryPreview">—</span>. This is to confirm that the salary, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span id="periodPreview3">—</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.</div>
       <div class="mb-2">You further confirm and acknowledge the following:</div>
-      <ol class="list-decimal pl-6 mb-3 text-[15px]" style="margin-top: 0;">
+      <ol class="list-decimal pl-6 mb-3 text-[15px]">
         <li>You have received your full salary and all benefits (if any) up to and including <span id="periodPreview4">—</span>.</li>
         <li>There are no pending financial dues from the employer.</li>
         <li>You shall not file or pursue any claim, complaint, or legal action with MOHRE or any UAE authority regarding salary, dues, or employment matters related to your service until <span id="periodPreview5">—</span>.</li>
@@ -178,20 +177,20 @@
         <span id="periodPreview6">—</span>, and I have no further claims or pending dues. I shall not raise any complaints or legal cases regarding my employment.
       </div>
       <div class="flex flex-row justify-between mt-8 mb-2">
+        <!-- Left: Authorised Signatory with NO signature line below -->
         <div class="flex flex-col justify-end min-w-[230px]">
           <div class="font-medium mb-2">Authorised Signature</div>
           <div class="mt-6 mb-0 text-[15px]">Name: <span id="signNamePreview">—</span></div>
           <div class="mb-3 text-[15px]">Designation: <span id="signDesgPreview">—</span></div>
-          <div class="border-t border-slate-300 pt-1 text-sm mt-5">Signature</div>
         </div>
+        <!-- Right: Employee Signature and Date a bit higher up -->
         <div class="flex flex-col items-end justify-end min-w-[230px]">
-          <div class="h-6">&nbsp;</div>
-          <div class="border-t border-slate-300 pt-1 text-sm text-right mt-8">Employee Signature</div>
-          <div class="text-sm text-slate-500 text-right">Date: <span id="date2Preview">—</span></div>
+          <div class="border-t border-slate-300 pt-1 text-sm text-right mt-2 mb-1">Employee Signature</div>
+          <div class="mb-1 text-sm text-slate-500 text-right">Date: <span id="date2Preview">—</span></div>
         </div>
       </div>
     </div>
-    <button type="button" id="downloadPdf" class="no-print mt-6 px-4 py-2 rounded-none font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
+    <button type="button" id="downloadPdf" class="pl-2 no-print mt-6 px-4 py-2 rounded-none font-medium text-white bg-slate-900 hover:bg-slate-800" disabled>Download PDF</button>
   </div>
   <!-- Flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -219,7 +218,7 @@
       return date.toLocaleString(undefined, { month: "long", year: "numeric" }).toUpperCase();
     }
 
-    // Emirates ID auto-format (18 characters, 15 digits and 3 hyphens)
+    // Emirates ID auto-format (18 chars: 15 digits, 3 hyphens)
     document.getElementById("emiratesId").addEventListener("input", function(e) {
       let val = e.target.value.replace(/[^0-9]/g, "");
       let formatted = '';
@@ -257,9 +256,12 @@
 
     document.getElementById('downloadPdf').onclick = function() {
       const element = document.getElementById('letter');
+      let employeeName = document.getElementById('employeeName').value.trim();
+      employeeName = employeeName.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
+      const filename = employeeName ? `${employeeName}-settlement.pdf` : "employee-settlement.pdf";
       const opt = {
         margin: [12,15,12,15],
-        filename: 'Full_and_Final_Settlement.pdf',
+        filename: filename,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true, letterRendering: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }

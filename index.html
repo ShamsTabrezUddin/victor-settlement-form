@@ -45,12 +45,31 @@
 
     /* Adjust vertical spacing for clarity */
     #letter > div,
-    #letter p,
-    #letter ol {
+    #letter p {
       margin-bottom: 1rem;
     }
-    #letter ol {
-      padding-left: 1.8rem;
+    /* Combined text and list container */
+    #letter .confirm-section {
+      max-width: 700px; 
+      margin-left: auto; 
+      margin-right: auto; 
+      font-size: 16px; 
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+    /* Inline list with margin reset */
+    #letter .confirm-section ol {
+      display: inline-block; 
+      padding-left: 20px; 
+      margin: 0; 
+      vertical-align: middle;
+      list-style-position: inside;
+    }
+    #letter .confirm-section ol li {
+      margin-bottom: 8px;
+    }
+    #letter .confirm-section ol li:last-child {
+      margin-bottom: 0;
     }
 
     #letter .font-bold {
@@ -277,14 +296,16 @@
       <div style="margin-bottom: 14px; max-width: 700px; margin-left: auto; margin-right: auto;">
         You were offered an internal offer letter with a salary of AED <span id="offerSalaryPreview">—</span>, while your registered MOHRE labor contract stated a salary of AED <span id="mohreSalaryPreview">—</span>. This is to confirm that the salary, whether as per the offer letter or labor contract, has been paid and cleared in full from your date of joining until <span id="periodPreview3">—</span>, and there are no dues pending from the company side in any form — salary, cash, allowances, or any other employment-related benefit.
       </div>
-      <div style="margin-bottom: 10px; max-width: 700px; margin-left: auto; margin-right: auto;">You further confirm and acknowledge the following:</div>
-      <ol style="padding-left: 28px; margin-bottom: 18px; font-size: 16px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-        <li>You have received your full salary and all benefits (if any) up to and including <span id="periodPreview4">—</span>.</li>
-        <li>There are no pending financial dues from the employer.</li>
-        <li>You shall not file or pursue any claim, complaint, or legal action with MOHRE or any UAE authority regarding salary, dues, or employment matters related to your service until <span id="periodPreview5">—</span>.</li>
-        <li>This settlement is final, irrevocable, and made with full mutual understanding.</li>
-        <li>You have signed this declaration voluntarily and of your own free will.</li>
-      </ol>
+      <div class="confirm-section">
+        You further confirm and acknowledge the following:
+        <ol>
+          <li>You have received your full salary and all benefits (if any) up to and including <span id="periodPreview4">—</span>.</li>
+          <li>There are no pending financial dues from the employer.</li>
+          <li>You shall not file or pursue any claim, complaint, or legal action with MOHRE or any UAE authority regarding salary, dues, or employment matters related to your service until <span id="periodPreview5">—</span>.</li>
+          <li>This settlement is final, irrevocable, and made with full mutual understanding.</li>
+          <li>You have signed this declaration voluntarily and of your own free will.</li>
+        </ol>
+      </div>
       <div style="font-weight: 600; margin-bottom: 10px; max-width: 700px; margin-left: auto; margin-right: auto;">Employee Declaration:</div>
       <div style="margin-bottom: 14px; max-width: 700px; margin-left: auto; margin-right: auto;">
         I, <span style="font-weight: 700; text-transform: uppercase;" id="employeeNameUpperPreview2">—</span>, hereby confirm that I have received my full and final settlement up to 

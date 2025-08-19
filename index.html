@@ -30,7 +30,7 @@
       padding: 24px 28px;
       max-height: 277mm;
       max-width: 700px;
-      margin: 100px auto 16px auto; /* Increased top margin to leave more space for letterhead */
+      margin: 100px auto 16px auto; /* Leave more space for letterhead */
       background: #ffffff;
       color: #1f2937;
       box-sizing: border-box;
@@ -78,57 +78,64 @@
     /* Button styling for better rectangular appearance */
     button {
       font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      border-radius: 6px; /* Slightly rounded corners */
-      padding: 12px 28px; /* Button size */
-      min-width: 110px;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      border: none;
+      border-radius: 8px;
+      padding: 12px 32px;
+      min-width: 140px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      border: 1px solid #e2e8f0;
+      margin-right: 8px;
+      transition: background 0.2s, border 0.2s, color 0.2s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
+    /* Primary: Generate */
     button#generate {
-      background-color: #111827;
-      color: white;
+      background: linear-gradient(90deg, #111827 0%, #334155 100%);
+      color: #fff;
+      border: 1px solid #334155;
     }
     button#generate:hover {
-      background-color: #1e293b;
+      background: linear-gradient(90deg, #334155 0%, #111827 100%);
+      box-shadow: 0 2px 6px rgba(51,65,85,0.15);
+      border-color: #111827;
     }
+    /* Success: Download PDF */
     button#downloadPdf {
-      background-color: #16a34a;
-      color: white;
-      border: 1px solid #4ade80;
-      box-shadow: 0 0 0 1px transparent;
-      opacity: 0.75;
+      background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+      color: #fff;
+      border: 1px solid #16a34a;
+      opacity: 0.95;
     }
     button#downloadPdf:hover:not(:disabled) {
-      background-color: #15803d;
+      background: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
+      box-shadow: 0 2px 6px rgba(34,197,94,0.10);
       border-color: #22c55e;
-      box-shadow: 0 0 0 2px #22c55e;
       opacity: 1;
     }
     button#downloadPdf:disabled {
+      opacity: 0.5;
       cursor: not-allowed;
     }
+    /* Neutral: Reset */
     button[type="reset"] {
-      background-color: white;
+      background: #fff;
       color: #334155;
       border: 1px solid #cbd5e1;
-      padding: 12px 28px;
-      min-width: 110px;
-      border-radius: 6px;
     }
     button[type="reset"]:hover {
-      background-color: #f1f5f9;
+      background: #e2e8f0;
+      border-color: #94a3b8;
     }
     .container {
       width: 100%;
       max-width: 720px;
       margin: 0 auto;
       padding: 20px 15px;
+      text-align: center;
     }
     #letter {
       page-break-inside: avoid;
@@ -139,6 +146,7 @@
       margin: 0 auto 18px auto;
       font-size: 14px;
       line-height: 1.5;
+      text-align: left;
     }
     #letter .confirm-section span.text {
       display: block;
@@ -159,21 +167,16 @@
     #letter .confirm-section ol li:last-child {
       margin-bottom: 0;
     }
-    /* Button container spacing */
-    form > .flex.items-center.gap-4.pt-2 {
-      justify-content: center;
-      gap: 24px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Form heading -->
-    <div class="text-center">
+    <div>
       <h1 style="font-weight: 700; font-size: 22px; margin-bottom: 24px;">Victor Luxury Limousine LLC</h1>
     </div>
     <!-- FORM -->
-    <form id="settlement-form" class="bg-white shadow p-6 rounded-xl space-y-6 ring-1 ring-slate-200">
+    <form id="settlement-form" class="bg-white shadow p-6 rounded-xl space-y-6 ring-1 ring-slate-200 inline-block text-left">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label class="block">
           <span>Employee Name</span>
@@ -233,7 +236,7 @@
           <input type="text" id="signDesg" placeholder="e.g., Manager" />
         </label>
       </div>
-      <div class="flex items-center gap-4 pt-2">
+      <div class="flex items-center gap-4 pt-2" style="justify-content:center;">
         <button type="button" id="generate">Generate Letter</button>
         <button type="button" id="downloadPdf" disabled>Download PDF</button>
         <button type="reset">Reset</button>
@@ -317,7 +320,7 @@
         </div>
       </div>
     </div>
-    <button type="button" id="downloadPdf" class="no-print" style="display: block; margin: 24px auto 0 auto; padding: 12px 36px; background-color: #16a34a; color: white; border-radius: 6px; border: 1px solid #4ade80; font-weight: 600; cursor: not-allowed;" disabled>Download PDF</button>
+    <button type="button" id="downloadPdf" class="no-print" style="display: block; margin: 24px auto 0 auto; padding: 12px 36px; background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%); color: white; border-radius: 8px; border: 1px solid #16a34a; font-weight: 600; cursor: not-allowed; min-width: 140px;">Download PDF</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

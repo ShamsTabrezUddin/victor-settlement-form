@@ -19,13 +19,6 @@
     input:invalid {
       border-color: #f87171 !important;
     }
-    /* Optional: Remove table borders and set spacing */
-    table {
-      border-collapse: collapse;
-    }
-    td {
-      vertical-align: middle;
-    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -133,7 +126,7 @@
       </div>
       <!-- Updated preview header: Date on top, Employee Name and Labor Card No side by side -->
       <div class="w-full flex justify-center mt-4">
-        <table class="text-[14px] font-semibold w-auto">
+        <table class="text-[15px] font-semibold w-auto">
           <tr>
             <td class="text-right pr-12 font-semibold" colspan="3">Date</td>
             <td class="text-left pl-0 font-semibold" colspan="3">: <span id="datePreview">—</span></td>
@@ -141,18 +134,18 @@
           <tr>
             <td class="pr-4 font-semibold">Employee Name</td>
             <td class="text-right pl-1 font-semibold">:</td>
-            <td class="pl-2" id="employeeNamePreview">—</td>
+            <td class="pl-2 w-[180px]" id="employeeNamePreview">—</td>
             <td class="pl-12 pr-4 font-semibold">Labor Card No</td>
             <td class="text-right pl-1 font-semibold">:</td>
-            <td class="pl-2" id="laborCardPreview">—</td>
+            <td class="pl-2 w-[160px]" id="laborCardPreview">—</td>
           </tr>
           <tr>
             <td class="pr-4 font-semibold">Emirates ID</td>
             <td class="text-right pl-1 font-semibold">:</td>
-            <td class="pl-2" id="emiratesIdPreview">—</td>
+            <td class="pl-2 w-[180px]" id="emiratesIdPreview">—</td>
             <td class="pl-12 pr-4 font-semibold">Position</td>
             <td class="text-right pl-1 font-semibold">:</td>
-            <td class="pl-2" id="positionPreview">—</td>
+            <td class="pl-2 w-[160px]" id="positionPreview">—</td>
           </tr>
         </table>
       </div>
@@ -264,5 +257,4 @@
   </script>
 </body>
 </html>
-
 

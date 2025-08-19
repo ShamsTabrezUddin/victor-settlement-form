@@ -125,7 +125,7 @@
     #letter {
       page-break-inside: avoid;
     }
-    /* Confirm section with proper block phrase and numbered list */
+    /* Confirm section with enforced decimal numbering */
     #letter .confirm-section {
       max-width: 700px;
       margin: 0 auto 18px auto;
@@ -138,9 +138,12 @@
       margin-bottom: 8px;
     }
     #letter .confirm-section ol {
-      padding-left: 20px;
-      margin: 0;
-      list-style-position: outside;
+      padding-left: 24px !important;
+      margin: 0 0 1rem 0 !important;
+      list-style-position: outside !important;
+      list-style-type: decimal !important;
+      display: block !important;
+      color: #1f2937;
     }
     #letter .confirm-section ol li {
       margin-bottom: 8px;

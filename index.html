@@ -19,6 +19,29 @@
     input:invalid {
       border-color: #f87171 !important;
     }
+    #letter {
+      font-size: 13px;         /* slightly smaller font */
+      padding: 20px;           /* reduced padding */
+      line-height: 1.3;        /* tighter line height */
+      max-height: 277mm;       /* A4 page height minus margins */
+      box-sizing: border-box;
+      overflow: visible;
+    }
+    /* Reduce some vertical spacing for compactness */
+    #letter > div,
+    #letter p,
+    #letter ol {
+      margin-bottom: 0.6rem;   /* less than original 0.75rem */
+    }
+    #letter ol {
+      padding-left: 1.4rem;    /* kept consistent but smaller */
+    }
+    #letter .mb-3 {
+      margin-bottom: 0.5rem;   /* smaller bottom spacing */
+    }
+    #letter .mb-2 {
+      margin-bottom: 0.4rem;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -255,11 +278,12 @@
       employeeName = employeeName.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
       const filename = employeeName ? `${employeeName}-settlement.pdf` : "employee-settlement.pdf";
       const opt = {
-        margin: [12,15,12,15],
+        margin: [10, 10, 10, 10],
         filename: filename,
-        image: { type: 'jpeg', quality: 0.98 },
+        image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
       };
       html2pdf().set(opt).from(element).save();
     };

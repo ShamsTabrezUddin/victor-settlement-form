@@ -124,34 +124,39 @@
       <div class="text-center mb-8">
         <div class="text-lg font-bold underline tracking-wide mb-2">Full and Final Settlement / No Dues Declaration</div>
       </div>
-      <!-- Updated preview header: Date shifted right, Employee Name and Labor Card No side by side -->
-      <div class="w-full flex justify-right mt-4 mb-6">
-        <table class="text-[15px] font-semibold w-auto">
-          <tr>
-            <td style="width: 130px;"></td>
-            <td class="text-right pr-10 font-semibold" style="width: 110px;">Date</td>
-            <td class="text-right pl-1 font-semibold" style="width: 14px;">:</td>
-            <td class="pl-2" style="width: 140px;" id="datePreview">—</td>
-            <td style="width: 150px;"></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="pr-4 font-semibold" style="width: 130px;">Employee Name</td>
-            <td class="text-right pl-1 font-semibold" style="width: 14px;">:</td>
-            <td class="pl-2 w-[180px]" id="employeeNamePreview">—</td>
-            <td class="pl-12 pr-4 font-semibold" style="width: 120px;">Labor Card No</td>
-            <td class="text-right pl-1 font-semibold" style="width: 14px;">:</td>
-            <td class="pl-2 w-[160px]" id="laborCardPreview">—</td>
-          </tr>
-          <tr>
-            <td class="pr-4 font-semibold" style="width: 130px;">Emirates ID</td>
-            <td class="text-right pl-1 font-semibold" style="width: 14px;">:</td>
-            <td class="pl-2 w-[180px]" id="emiratesIdPreview">—</td>
-            <td class="pl-12 pr-4 font-semibold" style="width: 120px;">Position</td>
-            <td class="text-right pl-1 font-semibold" style="width: 14px;">:</td>
-            <td class="pl-2 w-[160px]" id="positionPreview">—</td>
-          </tr>
-        </table>
+      <!-- Updated preview header: flexbox for perfect alignment -->
+      <div class="flex justify-between w-full max-w-2xl mt-4 mb-6 font-semibold text-[15px]">
+        <!-- Left side -->
+        <div class="flex flex-col space-y-2 min-w-[280px]">
+          <div class="flex items-center">
+            <div class="w-[120px] text-right">Employee Name</div>
+            <div class="px-1">:</div>
+            <div class="flex-1" id="employeeNamePreview">—</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-[120px] text-right">Emirates ID</div>
+            <div class="px-1">:</div>
+            <div class="flex-1" id="emiratesIdPreview">—</div>
+          </div>
+        </div>
+        <!-- Right side -->
+        <div class="flex flex-col space-y-2 min-w-[280px]">
+          <div class="flex items-center justify-end">
+            <div class="w-[100px] text-right">Date</div>
+            <div class="px-1">:</div>
+            <div class="flex-1" id="datePreview">—</div>
+          </div>
+          <div class="flex items-center justify-end">
+            <div class="w-[100px] text-right">Labor Card No</div>
+            <div class="px-1">:</div>
+            <div class="flex-1" id="laborCardPreview">—</div>
+          </div>
+          <div class="flex items-center justify-end">
+            <div class="w-[100px] text-right">Position</div>
+            <div class="px-1">:</div>
+            <div class="flex-1" id="positionPreview">—</div>
+          </div>
+        </div>
       </div>
       <div class="font-bold mb-3 text-[15px]">
         Subject: Confirmation of Full and Final Settlement up to <span id="periodPreview">—</span>
